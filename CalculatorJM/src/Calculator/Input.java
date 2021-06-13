@@ -19,15 +19,15 @@ import java.util.regex.Pattern;
         }
 
         public static boolean inputVerification() throws IncorrectInputDataException {
-            String patternRomanString = "^[ ]*([1-9]|10)[ ]*([+-/*])[ ]*([1-9]|10)[ ]*$";
-            boolean matchesRomanPattern = Pattern.matches(patternRomanString, input);
-            String patternArabicString = "^[ ]*(V?I|V?I{2}|V?I{3}|IV|V|IX|X)[ ]*([+-/*])[ ]*(V?I|V?I{2}|V?I{3}|IV|V|IX|X)[ ]*$";
+            String patternArabicString = "^[ ]*([1-9]|10)[ ]*([+-/*])[ ]*([1-9]|10)[ ]*$";
             boolean matchesArabicPattern = Pattern.matches(patternArabicString, input);
+            String patternRomanString = "^[ ]*(V?I|V?I{2}|V?I{3}|IV|V|IX|X)[ ]*([+-/*])[ ]*(V?I|V?I{2}|V?I{3}|IV|V|IX|X)[ ]*$";
+            boolean matchesRomanPattern = Pattern.matches(patternRomanString, input);
 
-            if (matchesRomanPattern==true) {
+            if (matchesArabicPattern==true) {
                 isRoman = false;
             } else {
-                if (matchesArabicPattern==true) {isRoman = true;}
+                if (matchesRomanPattern==true) {isRoman = true;}
                 else { throw new IncorrectInputDataException("Некорректные входные данные!");
                     }
             }

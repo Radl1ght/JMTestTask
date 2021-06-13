@@ -45,12 +45,16 @@ public class CalcInt {
         return intResult;
     }
 
-    public String getFinalResult() {
+    public String getFinalResult() throws IncorrectInputDataException {
 
         if (isRoman==false) {
             finalResult = Integer.toString(intResult);
 
         } else {
+            if (intResult<1) {
+                throw new IncorrectInputDataException("Результат целочисленного деления римских чисел не может быть равен нулю!");
+            }
+            else
             finalResult = Converter.toRoman(intResult);
 
         }
